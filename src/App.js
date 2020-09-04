@@ -6,6 +6,7 @@ import UserIcon from '@material-ui/icons/Group';
 import PostIcon from '@material-ui/icons/Book';
 import Dashboard from './componants/Dashboard';
 import authProvider from './provider/authProvider';
+import MyLoginPage from './componants/MyLoginPage.js'
 
 import firebaseDataProvider from 'ra-data-firebase-client'
 import firebase from 'firebase/app'
@@ -26,7 +27,7 @@ firebase.initializeApp({
 //const settings = { context: 'dev', imagekey: "images", filekey: "files" }
 
 const App = () => (
-  <Admin dashboard={Dashboard} dataProvider={firebaseDataProvider(firebase)} authProvider={authProvider}>
+  <Admin dashboard={Dashboard} dataProvider={firebaseDataProvider(firebase)} authProvider={authProvider} loginPage={MyLoginPage}>
     <Resource name="users" list={UserList} icon={UserIcon} />
     <Resource name="vacationSheets" list={VacationSheetList} edit={VacationSheetEdit} create={VacationSheetCreate} icon={PostIcon} />
   </Admin>
