@@ -23,12 +23,12 @@ class MyLoginPage extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { disabled: false };
+        this.state = { loading: false };
     }
 
     submit = (e) => {
         e.preventDefault();
-
+        this.setState({ loading: true })
         const credentials = {
             'username': e.target.elements["username"].value,
             'passeword': e.target.elements["password"].value
