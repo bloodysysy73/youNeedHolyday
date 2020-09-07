@@ -23,7 +23,10 @@ class MyLoginPage extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { loading: false };
+        this.state = {
+            loading: false,
+            buttonEnable: false
+        };
     }
 
     submit = (e) => {
@@ -31,7 +34,7 @@ class MyLoginPage extends Component {
         this.setState({ loading: true })
         const credentials = {
             'username': e.target.elements["username"].value,
-            'passeword': e.target.elements["password"].value
+            'password': e.target.elements["password"].value
         };
 
         // Dispatch the userLogin action (injected by connect)
@@ -39,7 +42,7 @@ class MyLoginPage extends Component {
     }
 
     renderInput = ({
-        meta: { touched, error } = { touched: false, error: undefined },
+        //meta: { touched, error } = { touched: false, error: undefined },
         input: { ...inputProps },
         ...props
     }) => (
@@ -53,7 +56,7 @@ class MyLoginPage extends Component {
                             <TextField  {...inputProps}
                                 {...props}
                                 fullWidth
-                                id="input-with-icon-grid"
+                                id={props.name}
                                 label={props.label} />
                         </Grid>
                     </Grid>
@@ -64,12 +67,25 @@ class MyLoginPage extends Component {
 
 
     validate = (values) => {
+
         const errors = {};
         if (!values.username) {
             errors.username = 'required';
+            this.setState({
+                buttonEnable: false
+            })
         }
         if (!values.password) {
             errors.password = 'required';
+            this.setState({
+                buttonEnable: false
+            })
+        }
+
+        if (values.username && values.password) {
+            this.setState({
+                buttonEnable: true
+            })
         }
         return errors;
     };
@@ -80,7 +96,7 @@ class MyLoginPage extends Component {
             <Form
                 onSubmit={this.submit}
                 validate={this.validate}
-                render={({ submit }) => (
+                render={() => (
                     <form onSubmit={this.submit} >
                         <div className='main'>
                             <Card className='card'>
@@ -105,8 +121,7 @@ class MyLoginPage extends Component {
                                             name="username"
                                             // @ts-ignore
                                             component={this.renderInput}
-                                            label={'username'}
-                                            disabled={this.state.loading}
+                                            label='username'
                                         />
                                     </div>
                                     <div className='input'>
@@ -116,7 +131,6 @@ class MyLoginPage extends Component {
                                             component={this.renderInput}
                                             label='password'
                                             type="password"
-                                            disabled={this.state.loading}
                                         />
                                     </div>
                                 </div>
@@ -125,7 +139,7 @@ class MyLoginPage extends Component {
                                         variant="contained"
                                         type="submit"
                                         color="primary"
-                                        disabled={this.state.loading}
+                                        disabled={!this.state.buttonEnable}
 
                                     >
                                         {this.state.loading && (

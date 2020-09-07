@@ -9,11 +9,11 @@ import authProvider from './provider/authProvider';
 import MyLoginPage from './componants/MyLoginPage.js'
 
 import firebaseDataProvider from 'ra-data-firebase-client'
+import {emailAndPasswordAuthProvider} from "ra-auth-firebase-client";
+
 import firebase from 'firebase/app'
 import "firebase/database";
-import {
-  FirebaseAuthProvider
-} from 'react-admin-firebase';
+import 'firebase/auth'
 
 const config = {
   apiKey: "AIzaSyCwxesRBAR1jAfzTuL8nVgUC9kG9Ajkk7Y",
@@ -32,10 +32,8 @@ const options = {
   app: firebaseAppInstance,
 }
 
-const fireBaseAuthProvider = FirebaseAuthProvider(config, options);
-
 const App = () => (
-  <Admin dashboard={Dashboard} dataProvider={firebaseDataProvider(firebase)} authProvider={authProvider} loginPage={MyLoginPage}>
+  <Admin dashboard={Dashboard} dataProvider={firebaseDataProvider(firebase)} authProvider={emailAndPasswordAuthProvider(firebase)} loginPage={MyLoginPage}>
     <Resource name="users" list={UserList} icon={UserIcon} />
     <Resource name="vacationSheets" list={VacationSheetList} edit={VacationSheetEdit} create={VacationSheetCreate} icon={PostIcon} />
   </Admin>
