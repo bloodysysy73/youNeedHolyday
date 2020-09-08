@@ -1,0 +1,62 @@
+    .main {
+        display : flex;
+        flex-direction: column;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: flex-start;
+        background: url(https://cirdguinee.org/wp-content/uploads/2019/02/Blue-Background-HQ-Desktop-Wallpaper-16270.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .card {
+        /* min-width: 300; */
+        width: 40%;
+        margin-top: 6em;
+    }
+    .avatar {
+        margin: 1em;
+        display: flex;
+        justify-content: center;
+    }
+    .icon {
+        background-color: theme.palette.secondary.main}
+
+    .hint {
+        margin-top: 1em;
+        display: flex;
+        justify-content: center;
+    }
+
+    .form {
+        padding: 0 1em 1em 1em;
+    }
+    .input {
+        margin-top: 1em;
+    }
+    .actions {
+     padding: 0 1em 1em 1em;
+     justify-content: center ;
+     margin: 40px;
+
+    }
+
+    .text {
+        color:#0071bd;
+        width: '100%';
+        margin: 50px;
+        margin-top: 0px;
+        text-align: center;
+        align-items: center;
+       
+    }
+
+    .userfield {
+        margin: spacing(1);
+      }
+
+      .image {
+          width : 100%;
+          margin-bottom: 60px;
+      }
+
+
