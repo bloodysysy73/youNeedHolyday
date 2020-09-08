@@ -10,7 +10,7 @@ export const UserList = props => {
                 <EmailField source="email" /> 
                 <TextField source="phone" />
                 <MyUrlField source="website" />
-                <TextField source="company.name" />
+                <TextField source="company.name" label="company name" />
             </Datagrid>
         </List>
     );
