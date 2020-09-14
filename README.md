@@ -30,7 +30,6 @@
 <!-- ABOUT THE PROJECT -->
 ## Principe de l'application
 
-[![Capture mecalac][capture-mecalac]]
 
 Cette application simule la pose et la validation des congés au sein de l'entreprise Serial SA.
 L'administrateur (sguehria) aura également le pouvoir de valider ou non les fiches vacances et a accès à la liste des users.
